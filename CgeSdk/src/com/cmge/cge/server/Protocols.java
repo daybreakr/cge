@@ -18,4 +18,9 @@ public class Protocols {
     public static final int RESULT_OK = 1;
     public static final int RESULT_ERROR = 0;
     public static final int RESULT_REDIRECT = 2;
+    
+    public static final String UID = "uid";
+    public static final String NAME = "name";
+    public static final String TOKEN = "token";
+    public static final String EXTEND = "extend";
 }
