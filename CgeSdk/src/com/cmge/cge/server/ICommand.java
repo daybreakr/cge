@@ -6,7 +6,7 @@ public interface ICommand {
 
     public String getAction();
     
-    public Map<String, String> toParameters();
+    public Map<String, String> getRequestParameters();
     
     public IRetryStrategy getRetryStrategy();
 }

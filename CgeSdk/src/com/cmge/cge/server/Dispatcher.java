@@ -22,14 +22,6 @@ public class Dispatcher implements IDispatcher {
         mHttp = Http.getInstance(Http.TYPE_DEFAULT);
     }
     
-    public void setServerUrl(String url) {
-        if (!url.endsWith("/")) {
-            url = url + "/";
-        }
-        
-        mServerUrl = url;
-    }
-    
     @Override
     public void execute(ICommand command) {
         if (!checkCommand(command)) {
@@ -51,7 +43,7 @@ public class Dispatcher implements IDispatcher {
     
     private void send(CommandSendWrapper command) {
         String url = mServerUrl + command.getAction();
-        Map<String, String> params = command.toParameters();
+        Map<String, String> params = command.getRequestParameters();
         
         String response = null;
         try {
@@ -84,6 +76,14 @@ public class Dispatcher implements IDispatcher {
             command.retry();
             send(command);
         }
+    }
+    
+    private void setServerUrl(String url) {
+        if (!url.endsWith("/")) {
+            url = url + "/";
+        }
+        
+        mServerUrl = url;
     }
     
     private boolean checkCommand(ICommand command) {

@@ -37,7 +37,7 @@ public class CommandSendWrapper implements ICommand {
             return false;
         }
         mAction = command.getAction();
-        mParameters = command.toParameters();
+        mParameters = command.getRequestParameters();
         mRetryStrategy = command.getRetryStrategy();
         if (mRetryStrategy == null) {
             mRetryStrategy = new DefaultRetryStrategy();
@@ -53,7 +53,7 @@ public class CommandSendWrapper implements ICommand {
     }
     
     @Override
-    public Map<String, String> toParameters() {
+    public Map<String, String> getRequestParameters() {
         return mParameters;
     }
     
@@ -61,7 +61,7 @@ public class CommandSendWrapper implements ICommand {
     public IRetryStrategy getRetryStrategy() {
         return mRetryStrategy;
     }
-
+    
     public int retry() {
         return ++mRetry;
     }

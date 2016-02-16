@@ -15,7 +15,10 @@ public abstract class CgeCommand implements ICommand {
     
     private String mVersion;
     private String mChannelId;
+    
     private String mSignKey;
+    
+    private boolean mIsPrepared = false;
     
     public CgeCommand(String action, IRequest request, IResponse response) {
         this(action, request, response, new DefaultRetryStrategy());
@@ -34,7 +37,7 @@ public abstract class CgeCommand implements ICommand {
     }
     
     @Override
-    public Map<String, String> toParameters() {
+    public Map<String, String> getRequestParameters() {
         Map<String, String> params = new HashMap<String, String>();
         params.put(Protocols.V, mVersion);
         params.put(Protocols.PID, mChannelId);
@@ -51,9 +54,15 @@ public abstract class CgeCommand implements ICommand {
         return mRetryStrategy;
     }
     
+    public boolean isPrepared() {
+        return mIsPrepared;
+    }
+    
     public void prepare(String version, String channelId, String signKey) {
         mVersion = version;
         mChannelId = channelId;
         mSignKey = signKey;
+        
+        mIsPrepared = true;
     }
 }
