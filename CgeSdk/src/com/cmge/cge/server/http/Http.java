@@ -1,4 +1,4 @@
-package com.cmge.cge.server;
+package com.cmge.cge.server.http;
 
 import java.util.Map;
 
@@ -16,7 +16,7 @@ public class Http implements IHttp {
         IHttp impl = null;
         switch (type) {
             case TYPE_DEFAULT:
-                impl = new ApacheHttp();
+                impl = new HttpApacheImpl();
                 break;
 
             default:

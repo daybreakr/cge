@@ -1,4 +1,4 @@
-package com.cmge.cge.server;
+package com.cmge.cge.server.http;
 
 import android.text.TextUtils;
 
@@ -51,9 +51,9 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-public class ApacheHttp implements IHttp {
+public class HttpApacheImpl implements IHttp {
     
-    private static final String TAG = "Cge." + ApacheHttp.class.getSimpleName();
+    private static final String TAG = "Cge." + HttpApacheImpl.class.getSimpleName();
     
     private static final int CONSTRUCT_TIMEOUT = 30 * 1000;
     private static final int CONNECTION_TIMEOUT = 30 * 1000;
@@ -63,7 +63,7 @@ public class ApacheHttp implements IHttp {
     
     private static HttpClient sClient;
     
-    public ApacheHttp() {
+    public HttpApacheImpl() {
         sClient = constructHttpClient();
     }
     

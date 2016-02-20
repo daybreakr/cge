@@ -1,4 +1,4 @@
-package com.cmge.cge.server;
+package com.cmge.cge.server.dispatch;
 
 public interface IRetryStrategy {
 

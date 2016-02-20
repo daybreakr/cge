@@ -1,4 +1,4 @@
-package com.cmge.cge.server;
+package com.cmge.cge.server.api;
 
 public class Protocols {
 
@@ -23,4 +23,5 @@ public class Protocols {
     public static final String NAME = "name";
     public static final String TOKEN = "token";
     public static final String EXTEND = "extend";
+    public static final String PROTOCOL_VERSION = "protocolVersion";
 }

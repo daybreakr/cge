@@ -1,4 +1,4 @@
-package com.cmge.cge.server;
+package com.cmge.cge.server.api;
 
 public interface IResponse {
 
