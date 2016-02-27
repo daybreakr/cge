@@ -2,14 +2,14 @@ package com.cmge.cge.server.dispatch;
 
 public class DefaultRetryStrategy implements IRetryStrategy {
 
-    private static final int MAX_RETRY_TIMES = 3;
+    private static final int MAX_RETRY = 3;
     
     @Override
-    public int nextRetryDelay(int lastRetryTimes) {
-        return lastRetryTimes < MAX_RETRY_TIMES ? 0 : -1;
+    public int nextRetryDelay(int tries) {
+        return tries < MAX_RETRY ? 0 : -1;
     }
 
-    public int getMaxRetryTimes() {
-        return MAX_RETRY_TIMES;
+    public int getMaxRetry() {
+        return MAX_RETRY;
     }
 }
